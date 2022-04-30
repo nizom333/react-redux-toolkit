@@ -40,7 +40,7 @@ export const deleteTodo = createAsyncThunk(
 
             dispatch(removeTodo({id}));
 
-            //return await response.json();
+            return await response.json();
         } catch (error) {
             console.log(error);
             return rejectWithValue(error.message);
@@ -76,7 +76,7 @@ export const addNewTodo = createAsyncThunk(
 
             dispatch(addTodo(data));
 
-            //return data;
+            return data;
         } catch (error) {
             console.log(error);
             return rejectWithValue(error.message);
@@ -157,18 +157,18 @@ const todoSlice = createSlice({
          * @name Удаление
         * */
         // когда отправился запрос в API но еще не получили отчет
-        [deleteTodo.pending]: setPadding,
+        // [deleteTodo.pending]: setPadding,
         // когда мы успешно плучили ответ от сервера или завершился запрос
-        [deleteTodo.fulfilled]: setSuccessfully,
+        // [deleteTodo.fulfilled]: setSuccessfully,
         // когда произошла ошибка
         [deleteTodo.rejected]: setError,
         /**
          * @name Добавление
         * */
         // когда отправился запрос в API но еще не получили отчет
-        [addNewTodo.pending]: setPadding,
+        //[addNewTodo.pending]: setPadding,
         // когда мы успешно плучили ответ от сервера или завершился запрос
-        [addNewTodo.fulfilled]: setSuccessfully,
+        //[addNewTodo.fulfilled]: setSuccessfully,
         // когда произошла ошибка
         [addNewTodo.rejected]: setError,
 
@@ -176,9 +176,9 @@ const todoSlice = createSlice({
          * @name Обновление
         * */
         // когда отправился запрос в API но еще не получили отчет
-        [toggleTodo.pending]: setPadding,
+        //[toggleTodo.pending]: setPadding,
         // когда мы успешно плучили ответ от сервера или завершился запрос
-        [toggleTodo.fulfilled]: setSuccessfully,
+        // [toggleTodo.fulfilled]: setSuccessfully,
         // когда произошла ошибка
         [toggleTodo.rejected]: setError,
     }
